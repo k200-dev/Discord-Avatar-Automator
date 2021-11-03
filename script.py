@@ -34,7 +34,6 @@ while True:
 
     # Set request headers to make request look more human
     reqHeaders = {
-        "Content-Length": "69204",
         "Sec-Ch-Ua": "Chromium",
         "X-Debug-Options": "bugReporterEnabled",
         "Accept-Language": "en-US",
