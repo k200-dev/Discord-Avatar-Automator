@@ -18,16 +18,16 @@ Automating or "self botting" your user account is against Discord's ToS and gett
    ```sh
    git clone https://github.com/k200-dev/Discord-Avatar-Automator
    ```
-2. Rename `.env.example` and edit the values inside
+2. Rename `config.example.yaml` to `config.yaml` and edit the values inside
    ```sh
-   CLIENT_TOKEN=YOUR_DISCORD_AUTH_TOKEN_HERE
-   API_VER = v9
+   CLIENT_TOKEN: 'YOUR_DISCORD_AUTH_TOKEN_HERE'
+   API_VER: 'v9'
    ```
 3. Put the images you want into this directory
 
-4. Edit the array in `script.py` to have the file names
+4. Edit the array in `config.yaml` to have the file names
    ```python
-   fileNames = ["FILE_1_HERE", "FILE_2_HERE", "FILE_3_HERE", "FILE_4_HERE"]
+   FILE_NAMES : ["FILE_1_HERE", "FILE_2_HERE", "FILE_3_HERE", "FILE_4_HERE"]
    ```
 
 5. Edit the time values in `script.py` (in seconds) to set how often your avatar should change

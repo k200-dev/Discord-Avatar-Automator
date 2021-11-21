@@ -4,13 +4,16 @@ import requests
 import base64
 import random
 import time
+import yaml
 from dotenv import load_dotenv
 
-# Loads enviroment variables (secrets)
-load_dotenv()
-# Gets the needed secrets from the loaded env file
-clientToken = os.getenv("CLIENT_TOKEN")
-apiVer = os.getenv("API_VER")
+# Read the yaml config file, contains hidden variables
+with open("config.yaml", "r") as file:
+    config = yaml.safe_load(file)
+# Gets the needed secrets from the loaded yaml file
+clientToken = config["CLIENT_TOKEN"]
+apiVer = config["API_VER"]
+fileNames = config["FILE_NAMES"]
 
 tiemVal1 = 18000  # 5 hours~
 timeVal2 = 25200  # 7 hours~
@@ -20,9 +23,6 @@ xSuperProperties = base64.b64encode(
     b'{"os":"Windows","browser":"Chrome","device":"","system_locale":"en-US","browser_user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36","browser_version":"74","os_version":"10","referrer":"","referring_domain":"","referrer_current":"","referring_domain_current":"","release_channel":"stable","client_build_number":,"client_event_source":null}'
 )
 userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
-
-# CHANGE THESE
-fileNames = ["cat.png", "cat2.png", "cat3.png", "cat4.png"]
 
 while True:
     # Open the png file as binary and encode it into base64
