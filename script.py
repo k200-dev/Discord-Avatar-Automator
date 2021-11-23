@@ -11,12 +11,7 @@ from dotenv import load_dotenv
 with open("config.yaml", "r") as file:
     config = yaml.safe_load(file)
 # Gets the needed secrets from the loaded yaml file
-clientToken = config["CLIENT_TOKEN"]
 apiVer = config["API_VER"]
-fileNames = config["FILE_NAMES"]
-
-tiemVal1 = config["TIME_VAL_1"]  # 5 hours~
-timeVal2 = config["TIME_VAL_2"]  # 7 hours~
 
 # Change these if you'd like
 xSuperProperties = base64.b64encode(
@@ -26,7 +21,7 @@ userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 
 while True:
     # Open the png file as binary and encode it into base64
-    with open(random.choice(fileNames), "rb") as image:
+    with open(random.choice(config["FILE_NAMES"]), "rb") as image:
         encodedPicture = base64.b64encode(image.read())
 
     # Decode to utf-8 to remove byte properties
@@ -38,7 +33,7 @@ while True:
         "X-Debug-Options": "bugReporterEnabled",
         "Accept-Language": "en-US",
         "Sec-Cha-Ua-Mobile": "?0",
-        "Authorization": clientToken,
+        "Authorization": config["CLIENT_TOKEN"],
         "Content-Type": "application/json",
         "User-Agent": userAgent,
         "X-Super-Properties": xSuperProperties,
@@ -71,7 +66,7 @@ while True:
     else:
         print("[-] An error occured in the program")
         print(r.content)
-    sleepNum = random.randrange(tiemVal1, timeVal2)
+    sleepNum = random.randrange(config["TIME_VAL_1"], config["TIME_VAL_2"])
     print(
         f"Next change in:\n{sleepNum} seconds\n{sleepNum / 60} minutes\n{(sleepNum / 60) / 60} hours"
     )
