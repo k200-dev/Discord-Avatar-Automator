@@ -15,8 +15,8 @@ clientToken = config["CLIENT_TOKEN"]
 apiVer = config["API_VER"]
 fileNames = config["FILE_NAMES"]
 
-tiemVal1 = 18000  # 5 hours~
-timeVal2 = 25200  # 7 hours~
+tiemVal1 = config["TIME_VAL_1"]  # 5 hours~
+timeVal2 = config["TIME_VAL_2"]  # 7 hours~
 
 # Change these if you'd like
 xSuperProperties = base64.b64encode(
