@@ -11,6 +11,8 @@ with open("config.yaml", "r") as file:
     config = yaml.safe_load(file)
 # Gets the needed secrets from the loaded yaml file
 apiVer = config["API_VER"]
+lastPath = ""
+path = ""
 
 # Change these if you'd like
 xSuperProperties = base64.b64encode(
@@ -21,10 +23,11 @@ userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 while True:
     # Open the png file as binary and encode it into base64
     path = "./avatars/" + random.choice(os.listdir("./avatars"))
-    
+
     # Check for the markdown file in the path and get a new one if true to avoid using the MD file as an image
-    while "USAGE.md" in path:
+    while "USAGE.md" in path or lastPath == path:
         path = "./avatars/" + random.choice(os.listdir("./avatars"))
+    lastPath = path
 
     with open(path, "rb") as image:
         encodedPicture = base64.b64encode(image.read())
