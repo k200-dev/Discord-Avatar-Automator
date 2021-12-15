@@ -22,6 +22,12 @@ userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 while True:
     # Open the png file as binary and encode it into base64
     path = "./avatars/" + random.choice(os.listdir("./avatars"))
+    
+    # Check for the markdown file in the path and get a new one if true to avoid using the MD file as an image
+    while "USAGE.md" in path:
+        path = "./avatars/" + random.choice(os.listdir("./avatars"))
+
+    print(path)
     with open(path, "rb") as image:
         encodedPicture = base64.b64encode(image.read())
 
