@@ -26,7 +26,6 @@ while True:
     while "USAGE.md" in path:
         path = "./avatars/" + random.choice(os.listdir("./avatars"))
 
-    print(path)
     with open(path, "rb") as image:
         encodedPicture = base64.b64encode(image.read())
 
