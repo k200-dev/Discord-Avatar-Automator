@@ -21,7 +21,8 @@ userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 
 while True:
     # Open the png file as binary and encode it into base64
-    with open(random.choice(config["FILE_NAMES"]), "rb") as image:
+    path = "./avatars/" + random.choice(os.listdir("./avatars"))
+    with open(path, "rb") as image:
         encodedPicture = base64.b64encode(image.read())
 
     # Decode to utf-8 to remove byte properties

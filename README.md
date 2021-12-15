@@ -23,14 +23,9 @@ Automating or "self botting" your user account is against Discord's ToS and gett
    CLIENT_TOKEN: 'YOUR_DISCORD_AUTH_TOKEN_HERE'
    API_VER: 'v9'
    ```
-3. Put the images you want into this directory
+3. Put the images you want to use into the ./avatars directory
 
-4. Edit the array in `config.yaml` to have the file names
-   ```yaml
-   FILE_NAMES : ["FILE_1_HERE", "FILE_2_HERE", "FILE_3_HERE", "FILE_4_HERE"]
-   ```
-
-5. Edit the time values in `config.yaml` (in seconds) to set how often your avatar should change
+4. Edit the time values in `config.yaml` (in seconds) to set how often your avatar should change
    ```yaml
    TIME_VAL_1: TIME_VALUE_1_HERE_SECONDS
    TIME_VAL_2: TIME_VALUE_2_HERE_SECONDS
