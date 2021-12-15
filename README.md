@@ -25,7 +25,7 @@ Automating or "self botting" your user account is against Discord's ToS and gett
    ```
 3. Put the images you want to use into the ./avatars directory
 
-4. Edit the time values in `config.yaml` (in seconds) to set how often your avatar should change
+4. Edit the time values in `config.yaml` (in seconds) to change the range of times your avatar will change from
    ```yaml
    TIME_VAL_1: TIME_VALUE_1_HERE_SECONDS
    TIME_VAL_2: TIME_VALUE_2_HERE_SECONDS
