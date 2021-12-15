@@ -5,7 +5,6 @@ import base64
 import random
 import time
 import yaml
-from dotenv import load_dotenv
 
 # Read the yaml config file, contains hidden variables
 with open("config.yaml", "r") as file:
