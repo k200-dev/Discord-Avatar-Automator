@@ -2,7 +2,7 @@
 
 ## About
 
-Python script that changes a users discord avatar from a selection of files at random time intervals
+Python script that changes a users discord avatar from a selection of files at random time intervals, supports server avatars
 
 ## Disclaimer
 
@@ -22,7 +22,10 @@ Automating or "self botting" your user account is against Discord's ToS and gett
    ```yaml
    CLIENT_TOKEN: 'YOUR_DISCORD_AUTH_TOKEN_HERE'
    API_VER: 'v9'
+   GUILD_ID: ''
    ```
+   Leave `GUILD_ID` blank unless you want the script to run on a server avatar
+
 3. Put the images you want to use into the ./avatars directory
 
 4. Edit the time values in `config.yaml` (in seconds) to change the range of times your avatar will change from

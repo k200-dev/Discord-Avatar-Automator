@@ -21,6 +21,7 @@ xSuperProperties = base64.b64encode(
 userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
 
 while True:
+    guildID = config["GUILD_ID"]
     # Open the png file as binary and encode it into base64
     path = "./avatars/" + random.choice(os.listdir("./avatars"))
 
@@ -61,9 +62,20 @@ while True:
 
     """
     # Send the request to the api, using the correct headers and data
-    r = requests.patch(
-        f"https://discord.com/api/{apiVer}/users/@me", headers=reqHeaders, data=reqData
-    )
+    if guildID == "":
+        print(f"[+] No Guild ID found.... changing global avatar {guildID}")
+        r = requests.patch(
+            f"https://discord.com/api/{apiVer}/users/@me",
+            headers=reqHeaders,
+            data=reqData,
+        )
+    else:
+        print(f"[+] Guild ID found.... changing guild {guildID}")
+        r = requests.patch(
+            f"https://discord.com/api/{apiVer}/guilds/{guildID}/members/@me",
+            headers=reqHeaders,
+            data=reqData,
+        )
 
     if r.status_code == 200:
         print("[+] Success")
