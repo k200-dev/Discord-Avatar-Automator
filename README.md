@@ -2,15 +2,11 @@
 
 ## About
 
-Python script that changes a users discord avatar from a selection of files at random time intervals, supports server avatars
+Script that changes a users discord avatar from a selection of files at random time intervals, supports server avatars
 
 ## Disclaimer
 
-Automating or "self botting" your user account is against Discord's ToS and getting banned from Discord is possible 
-
-### Built With
-
-* [Python 3](https://www.python.org/)
+Automating or "self botting" your user account is against Discord's ToS and may get your account banned. If you don't know what a user token is or aren't sure about the risk of getting your account banned do not use this script
 
 ### Setup
 
