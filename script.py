@@ -5,13 +5,14 @@ import random
 import time
 import yaml
 
+
 def main():
     last_path = ""
     while True:
         # Loads YAML config file to get variables defined inside
         with open("config.yaml", "r") as file:
             config = yaml.safe_load(file)
-        
+
         api_ver = config["API_VER"]
         guild_id = config["GUILD_ID"]
         auth_token = config["CLIENT_TOKEN"]
@@ -62,16 +63,17 @@ def main():
         req_data = f"""
         {{"avatar": "data:image/png;base64, {encoded_image}"}}
         """
-        
+
         do_request(guild_id, req_headers, req_data, api_ver)
-        
+
         # Gets the number of seconds to sleep in as a random number between the two chosen times
         sleepNum = random.randrange(time_one, time_two)
         print(
             f"[+] Next change in:\n{sleepNum} seconds\n{sleepNum / 60} minutes\n{(sleepNum / 60) / 60} hours"
         )
         time.sleep(sleepNum)
-    
+
+
 def do_request(guild_id, req_headers, req_data, api_ver):
     # Checks to see if a guild ID is defined in the YAML config, then chooses which request to make
     if guild_id == "":
@@ -101,6 +103,7 @@ def do_request(guild_id, req_headers, req_data, api_ver):
     else:
         print("[-] An error occured in the program")
         print(r.content)
+
 
 if __name__ == "__main__":
     main()
