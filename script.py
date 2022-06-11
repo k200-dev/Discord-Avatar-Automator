@@ -4,6 +4,7 @@ import base64
 import random
 import time
 import yaml
+import json
 
 
 def main():
@@ -60,18 +61,18 @@ def main():
         }
 
         # Sets the actual data to send with the request
-        req_data = f"""
-        {{"avatar": "data:image/png;base64, {encoded_image}"}}
-        """
+        req_data = json.dumps(
+            {"avatar": "data:image/png;base64, {}".format(encoded_image)}
+        )
 
         do_request(guild_id, req_headers, req_data, api_ver)
 
         # Gets the number of seconds to sleep in as a random number between the two chosen times
-        sleepNum = random.randrange(time_one, time_two)
+        sleep_num = random.randrange(time_one, time_two)
         print(
-            f"[+] Next change in:\n{sleepNum} seconds\n{sleepNum / 60} minutes\n{(sleepNum / 60) / 60} hours"
+            f"[+] Next change in:\n    {sleep_num} seconds\n    {round(sleep_num / 60)} minutes\n    {round((sleep_num / 60) / 60)} hours"
         )
-        time.sleep(sleepNum)
+        time.sleep(sleep_num)
 
 
 def do_request(guild_id, req_headers, req_data, api_ver):
