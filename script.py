@@ -91,6 +91,9 @@ def do_request(guild_id, req_headers, req_data, api_ver):
 
     if r.status_code == 200:
         print("[+] Success")
+    elif r.status_code == 401:
+        print("[-] Invalid discord token")
+        quit()
     # Makes sure the program is not accidentally spamming the Discord API
     elif b"AVATAR_RATE_LIMIT" in r.content:
         print("[-] Critical error, please change times or report bug")
